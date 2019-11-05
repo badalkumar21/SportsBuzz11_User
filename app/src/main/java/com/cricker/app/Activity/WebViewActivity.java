@@ -68,12 +68,12 @@ public class WebViewActivity extends AppCompatActivity {
                     public void run() {
                         if (isRunning) {
                             if (UnityAds.isReady()) {
-                                UnitAdsShow();
+                             //   UnitAdsShow();
 
                             } else {
 
                                 UnitAdsInitialize();
-                                UnitAdsShow();
+                              //  UnitAdsShow();
 
                             }
                         }

@@ -5,9 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -17,30 +18,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.cricker.app.Activity.MatchDetailsActivity"></activity>
-        <activity android:name="com.cricker.app.Activity.TeamConbinationActivity" />
-        <activity android:name="com.cricker.app.Activity.TeamGeneratorActivity" />
-        <activity android:name="com.cricker.app.Activity.WebViewActivity" />
-        <activity android:name="com.cricker.app.Activity.FeedbackActivity" />
 
-        <service android:name="com.cricker.app.Service.MyFirebaseMessagingService">
+        <activity android:name=".Activity.AgreementWebViewActivity"></activity>
+        <activity android:name=".Activity.UserAgreementActivity" />
+        <activity android:name=".Activity.MatchDetailsActivity" />
+        <activity android:name=".Activity.TeamConbinationActivity" />
+        <activity android:name=".Activity.TeamGeneratorActivity" />
+        <activity android:name=".Activity.WebViewActivity" />
+        <activity android:name=".Activity.FeedbackActivity" />
+
+        <service android:name=".Service.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name="com.cricker.app.Activity.SplashActivity">
+        <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.cricker.app.Activity.PrivacyPolicyActivity" />
-        <activity android:name="com.cricker.app.Activity.DisclosureActivity" />
-        <activity android:name="com.cricker.app.Activity.HomeActivity" />
+        <activity android:name=".Activity.PrivacyPolicyActivity" />
+        <activity android:name=".Activity.DisclosureActivity" />
+        <activity android:name=".Activity.HomeActivity" />
         <activity
-            android:name="com.cricker.app.Activity.GeneratorActivity"
+            android:name=".Activity.GeneratorActivity"
             android:theme="@style/AppThemeActionBar" />
     </application>
 

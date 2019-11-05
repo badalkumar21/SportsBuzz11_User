@@ -45,6 +45,8 @@ import com.firebase.client.ValueEventListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import static com.cricker.app.Config.PATH;
+
 public class HomeActivity extends AppCompatActivity {
 
 
@@ -58,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
     private ValueAnimator valueAnimator;
     private DrawerLayout drawerLayout;
     private boolean isRunning;
+    Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -65,15 +68,17 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        context = this;
+        getSharedPreferences("prefs", MODE_PRIVATE).edit()
+                .putBoolean("firstStart", false).apply();
 
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        boolean firstStart = prefs.getBoolean("firstStart", true);
+//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+//        boolean firstStart = prefs.getBoolean("firstStart", true);
 
-        if (firstStart) {
-            showStartDialog();
-            ShowAcceptDialog();
-        }
-
+//        if (firstStart) {
+//            showStartDialog();
+//            ShowAcceptDialog();
+//        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow(); // in Activity's onCreate() for instance
@@ -193,7 +198,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int i) {
 
-
             }
 
             @Override
@@ -226,24 +230,33 @@ public class HomeActivity extends AppCompatActivity {
 
             answer = "No internet Connectivity. Please Connect to the Internet";
 
-            @SuppressLint("CutPasteId") final Snackbar snackbar = Snackbar.make(findViewById(R.id.container), "No internet connection!", 1000000);
-            snackbar.setAction("Dismiss", new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            new AlertDialog.Builder(context)
+                    .setTitle("No internet")
+                    .setMessage("Please make sure that you are connected to Internet.")
 
-                    snackbar.dismiss();
-
-                }
-            });
-
-// Changing message text color
-            snackbar.setActionTextColor(Color.YELLOW);
-
-// Changing action button text color
-            View sbView = snackbar.getView();
-            TextView textView = (TextView) sbView.findViewById(com.google.android.material.R.id.snackbar_text);
-            textView.setTextColor(Color.RED);
-            snackbar.show();
+                  .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setIcon(R.drawable.ic_signal_wifi_off_black_24dp)
+                    .show();
+//            @SuppressLint("CutPasteId") final Snackbar snackbar = Snackbar.make(findViewById(R.id.container), "No internet connection!", 1000000);
+//            snackbar.setAction("Dismiss", new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    snackbar.dismiss();
+//                }
+//            });
+//
+//// Changing message text color
+//            snackbar.setActionTextColor(Color.YELLOW);
+//
+//// Changing action button text color
+//            View sbView = snackbar.getView();
+//            TextView textView = (TextView) sbView.findViewById(com.google.android.material.R.id.snackbar_text);
+//            textView.setTextColor(Color.RED);
+//            snackbar.show();
 
         }
 
@@ -344,7 +357,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Firebase.setAndroidContext(getApplicationContext());
 
-        myFirebase = new Firebase("https://crickerdemo-f5ce7.firebaseio.com/Version/currentVersion");
+        String url = "https://crickerdemo-f5ce7.firebaseio.com/" + PATH + "/Version/currentVersion";
+        myFirebase = new Firebase(url);
 
         myFirebase.addValueEventListener(new ValueEventListener() {
             @Override

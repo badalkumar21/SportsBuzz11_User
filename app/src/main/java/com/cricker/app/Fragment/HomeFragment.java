@@ -30,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
+import static com.cricker.app.Config.PATH;
+
 public class HomeFragment extends Fragment {
 
     RecyclerView mRecyclerView;
@@ -51,7 +53,7 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("Cricket");
+        mRef = mFirebaseDatabase.getReference(PATH + "Cricket");
         Query query = mRef.orderByKey();
 
         pb.setVisibility(View.VISIBLE);

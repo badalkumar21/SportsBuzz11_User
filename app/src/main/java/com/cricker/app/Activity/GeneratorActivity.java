@@ -29,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.cricker.app.Config.PATH;
+
 public class GeneratorActivity extends AppCompatActivity {
 
     Spinner spinner;
@@ -102,7 +104,7 @@ public class GeneratorActivity extends AppCompatActivity {
                 value = spinner.getSelectedItem().toString();
 
                 key = getIntent().getExtras().get("key").toString();
-                currentRef = FirebaseDatabase.getInstance().getReference().child("SmartTeam").child(key).child("Teams").child(value);
+                currentRef = FirebaseDatabase.getInstance().getReference().child(PATH).child("SmartTeam").child(key).child("Teams").child(value);
 
 //
 //                loadingBar.setTitle("Generating...");

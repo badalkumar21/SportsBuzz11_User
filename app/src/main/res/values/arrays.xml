@@ -8,6 +8,13 @@
         <item>#25ffffff</item>
     </string-array>
 
+    <string-array name="bubble_col">
+        <item>#66C2185B</item>
+        <item>#773E64DA</item>
+        <item>#4086B6F3</item>
+        <item>#25ffffff</item>
+    </string-array>
+
 
     <string-array name="BubbleAnimations">
         <item>com.github.glomadrian.grav.generator.animation.SideToSideAnimator</item>

@@ -20,6 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static com.cricker.app.Config.PATH;
+
 public class InfoFragment extends Fragment {
 
 
@@ -65,7 +67,7 @@ public class InfoFragment extends Fragment {
         id = matchDetailsActivity.id;
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("FantasySquad/Team" + "/" + id + "/" + "info");
+        mRef = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/" + "info");
 
 
         mRef.addValueEventListener(new ValueEventListener() {
