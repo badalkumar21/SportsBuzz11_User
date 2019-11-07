@@ -78,6 +78,7 @@
                 android:paddingStart="8dp"
                 android:paddingTop="2dp"
                 android:paddingEnd="8dp"
+                android:visibility="gone"
                 android:paddingBottom="2dp"
                 android:text="11.0"
                 android:textColor="@color/colorAccent"

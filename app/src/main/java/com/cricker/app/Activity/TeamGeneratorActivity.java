@@ -1,6 +1,8 @@
 package com.cricker.app.Activity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,7 @@ public class TeamGeneratorActivity extends AppCompatActivity {
     public String team1;
     public String team2;
     public String id;
+    private String userID;
 
     int points;
     int MAX_POINTS = 100;
@@ -88,13 +91,16 @@ public class TeamGeneratorActivity extends AppCompatActivity {
         team1 = getIntent().getExtras().getString("team1");
         team2 = getIntent().getExtras().getString("team2");
 
+        final Context context = this;
+        userID = Settings.Secure.getString(context.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference(PATH + "Teams");
         mRefWk = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/wk");
         mRefBt = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/bt");
         mRefAl = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/al");
         mRefBw = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/bw");
-        mRefXi = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team/FantasyXi" + "/" + id);
+        mRefXi = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team/FantasyXi" + "/" + id + "/" + userID);
 
         points = 0;
         mRefXi.setValue(null);

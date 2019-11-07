@@ -2,7 +2,6 @@ package com.cricker.app.Activity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -43,7 +42,6 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import static com.cricker.app.Config.PATH;
 
@@ -72,13 +70,6 @@ public class HomeActivity extends AppCompatActivity {
         getSharedPreferences("prefs", MODE_PRIVATE).edit()
                 .putBoolean("firstStart", false).apply();
 
-//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-//        boolean firstStart = prefs.getBoolean("firstStart", true);
-
-//        if (firstStart) {
-//            showStartDialog();
-//            ShowAcceptDialog();
-//        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow(); // in Activity's onCreate() for instance
@@ -103,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                item.setChecked(true);
+                item.setChecked(false);
 
                 drawerLayout.closeDrawers();
 
@@ -147,13 +138,7 @@ public class HomeActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), DisclosureActivity.class);
                     startActivity(i);
 
-                } else if (id == R.id.action_moreapps) {
-
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=StatusStock")));
-
-
                 }
-
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
@@ -161,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         relativeLayout = findViewById(R.id.relativeLayout);
-        valueAnimator = ValueAnimator.ofObject(new ArgbEvaluator(), Color.parseColor("#0030c1"), Color.parseColor("#ed0082"), Color.parseColor("#d66f0e"), Color.parseColor("#ff0558"), Color.parseColor("#1ca055"));
+        valueAnimator = ValueAnimator.ofObject(new ArgbEvaluator(), Color.parseColor("#0094a4"), Color.parseColor("#ed0082"), Color.parseColor("#d66f0e"), Color.parseColor("#ff0558"), Color.parseColor("#1ca055"));
         valueAnimator.setDuration((5 - 1) * 100000000);
 
 
@@ -222,8 +207,7 @@ public class HomeActivity extends AppCompatActivity {
             if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
                 answer = "You are connected to a Mobile Network";
 
-
-            Toast.makeText(getApplicationContext(), answer, Toast.LENGTH_LONG).show();
+        //   Toast.makeText(getApplicationContext(), answer, Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -241,22 +225,6 @@ public class HomeActivity extends AppCompatActivity {
                     })
                     .setIcon(R.drawable.ic_signal_wifi_off_black_24dp)
                     .show();
-//            @SuppressLint("CutPasteId") final Snackbar snackbar = Snackbar.make(findViewById(R.id.container), "No internet connection!", 1000000);
-//            snackbar.setAction("Dismiss", new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    snackbar.dismiss();
-//                }
-//            });
-//
-//// Changing message text color
-//            snackbar.setActionTextColor(Color.YELLOW);
-//
-//// Changing action button text color
-//            View sbView = snackbar.getView();
-//            TextView textView = (TextView) sbView.findViewById(com.google.android.material.R.id.snackbar_text);
-//            textView.setTextColor(Color.RED);
-//            snackbar.show();
 
         }
 
@@ -266,9 +234,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-//        Update Check
-
         isRunning = true;
 
         UpdateChecker();
@@ -303,52 +268,6 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
-    private void ShowAcceptDialog() {
-
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.checkbox, null);
-
-        TextView textview = (TextView) view.findViewById(R.id.textmsg);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Disclosure ");
-        textview.setText(" \n" + "\n" + "What information does the Application obtain and how is it used?\n" + " \n" + "\n" + " \n" + "\n" + "User Provided Information\n" + " \n" + "\n" + "The Application obtains the information you provide when you download and install the Application. There is no registration/login options. All users can directly access our application features.\n" + "\n" + " \n" + "\n" + "When you provide any feedback or report any issue inside the Application, you generally provide\n" + "\n" + " \n" + "\n" + "(a) Your name, email address and the message regarding the feedback or report.\n" + "(b) Along with your message we also collect your Unique Device ID to store your message.\n" + "Once we received your feedback or report, we try to improve our application as per your feedback or report. And after that, we removed your name, mail ID, Unique Device ID and the message from our database.\n" + "\n" + " \n" + "\n" + "Automatically Collected Information\n" + " \n" + "\n" + "In addition, the Application may collect certain information automatically, including, but not limited to, the type of mobile device you use, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browsers you use, and information about the way you use the Application.\n" + "\n" + " \n" + "\n" + "We may disclose User Provided and Automatically Collected Information:\n" + "\n" + "1) As required by law, such as to comply with a subpoena or similar legal process;\n" + "\n" + "2) when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;\n" + "\n" + "3) with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them and have agreed to adhere to the rules set forth in this privacy statement.\n" + "\n" + "4)if this app(All Sports Predictions) is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Website of any change in ownership or uses of this information, as well as any choices you may have regarding this information.\n" + "\n" + "5) To advertisers and third-party advertising networks and analytics companies as described in the section below\n" + "\n" + " \n" + "\n" + "Automatic Data Collection and Advertising\n" + " \n" + "\n" + "We may work with analytics companies to help us understand how the Application is being used, such as the type of mobile device you use, your mobile operating system, and information about the way you use the Application, frequency, and duration of usage. We work with advertisers and third-party advertising networks, who need to know how you interact with advertising provided in the Application which helps us keep the cost of the Application low. Advertisers and advertising networks use some of the information collected by the Application, including, but not limited to, the unique identification ID of your mobile device and your Facebook profile ID. To protect the anonymity of this information, we use an encryption technology to help ensure that these third parties can’t identify you personally. These third parties may also obtain anonymous information about other applications you’ve downloaded to your mobile device, the mobile websites you visit, your non-precise location information (e.g., your zip code), and other non-precise location information in order to help analyze and serve anonymous targeted advertising on the Application and elsewhere. We may also share encrypted versions of information you have provided in order to enable our partners to append other available information about you for analysis or advertising related use.\n" + "\n" + " \n");
-        builder.setView(view).setCancelable(false);
-        builder.setPositiveButton("Agree & Accept", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-
-                dialog.dismiss();
-
-            }
-        }).show();
-
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-    private void showStartDialog() {
-
-        new AlertDialog.Builder(this).setTitle(Html.fromHtml("<font color='#FF0000'>Important!</font>")).setMessage("Please read the privacy policy carefully before proceed.").setCancelable(false).setPositiveButton("Read", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                Intent i = new Intent(getApplicationContext(), PrivacyPolicyActivity.class);
-                startActivity(i);
-            }
-        }).setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }).create().show();
-
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstStart", false);
-        editor.apply();
-
-    }
 
     public void UpdateChecker() {
 

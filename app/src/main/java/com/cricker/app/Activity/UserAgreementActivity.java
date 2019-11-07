@@ -83,7 +83,7 @@ public class UserAgreementActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(UserAgreementActivity.this, "Please click the box to make sure that you have gone through the Privacy Policy and Disclosure.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserAgreementActivity.this, "Please click the box to make sure that you have gone through the Privacy Policy and Teams & Conditions.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

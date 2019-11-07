@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/splash_container"
     android:layout_height="match_parent"
-    android:background="#131A64"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.cricker.app.Activity.SplashActivity">
 
 
