@@ -66,7 +66,7 @@ public class ViewHolderSquad extends RecyclerView.ViewHolder {
 
     public void setImage(Context ctx, String image1) {
         ImageView squad_image = (ImageView) mView.findViewById(R.id.squad_image);
-        Picasso.with(ctx).load(image1).resize(100, 100).onlyScaleDown().into(squad_image);
+        Picasso.with(ctx).load(image1).into(squad_image);
     }
 
     public void setAds(Context ctx, String ads) {
