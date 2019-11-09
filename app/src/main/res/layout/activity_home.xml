@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:fitsSystemWindows="true"
-    tools:context="com.cricker.app.Activity.HomeActivity">
+    tools:context="com.sportsbuzz11.app.Activity.HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

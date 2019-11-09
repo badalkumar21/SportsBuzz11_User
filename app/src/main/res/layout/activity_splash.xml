@@ -6,7 +6,7 @@
     android:id="@+id/splash_container"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.cricker.app.Activity.SplashActivity">
+    tools:context="com.sportsbuzz11.app.Activity.SplashActivity">
 
 
     <com.github.glomadrian.grav.GravView

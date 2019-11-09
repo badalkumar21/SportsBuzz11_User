@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#cecece"
     android:orientation="vertical"
-    tools:context="com.cricker.app.Activity.GeneratorActivity">
+    tools:context="com.sportsbuzz11.app.Activity.GeneratorActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
