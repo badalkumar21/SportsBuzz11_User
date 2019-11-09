@@ -28,8 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 import static com.cricker.app.Config.PATH;
 
 public class HomeFragment extends Fragment {
@@ -64,12 +62,18 @@ public class HomeFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i, @NonNull final MyModel model) {
 
-                viewHolder.setAds(getActivity().getBaseContext(), model.getAds());
+                String urlImg1 = model.getImage1();
+                if (urlImg1.equals(""))
+                    urlImg1 = "fake_url";
+                String urlImg2 = model.getImage2();
+                if (urlImg2.equals(""))
+                    urlImg2 = "fake_url";
 
+                viewHolder.setAds(getActivity().getBaseContext(), model.getAds());
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDesc(model.getDesc());
-                viewHolder.setImage1(Objects.requireNonNull(getActivity()).getBaseContext(), model.getImage1());
-                viewHolder.setImage2(getActivity().getBaseContext(), model.getImage2());
+                viewHolder.setImage1(getActivity().getBaseContext(), urlImg1);
+                viewHolder.setImage2(getActivity().getBaseContext(), urlImg2);
                 viewHolder.setT1(model.getT1());
                 viewHolder.setT2(model.getT2());
                 if (model.getUrl() == null) {
@@ -79,7 +83,6 @@ public class HomeFragment extends Fragment {
                     viewHolder.setStatus_g("available");
                     viewHolder.setStatus_r(null);
                 }
-
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -99,17 +102,12 @@ public class HomeFragment extends Fragment {
                         } else {
 
                             if (offers == null) {
-
                                 Intent intent = new Intent(getActivity().getApplicationContext(), WebViewActivity.class);
                                 intent.putExtra("id", url);
                                 startActivity(intent);
-
-
                             } else {
-
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                                 startActivity(intent);
-
                             }
                         }
                     }
@@ -124,7 +122,6 @@ public class HomeFragment extends Fragment {
             public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_v7, parent, false);
-
                 return new MyViewHolder(view);
             }
         };

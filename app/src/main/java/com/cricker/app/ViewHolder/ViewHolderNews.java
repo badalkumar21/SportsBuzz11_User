@@ -1,22 +1,18 @@
 package com.cricker.app.ViewHolder;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cricker.app.R;
-import com.squareup.picasso.Picasso;
 
-public class ViewHolderFantasyXI extends RecyclerView.ViewHolder {
+public class ViewHolderNews extends RecyclerView.ViewHolder {
 
     View mView;
     private ClickListener mClickListener;
 
-
-    public ViewHolderFantasyXI(final View itemView) {
+    public ViewHolderNews(final View itemView) {
         super(itemView);
 
         mView = itemView;
@@ -39,14 +35,9 @@ public class ViewHolderFantasyXI extends RecyclerView.ViewHolder {
 
     }
 
-    public void setName(String title) {
-        TextView fantasy_xi_title = (TextView) mView.findViewById(R.id.fantasy_xi_name);
-        fantasy_xi_title.setText(title);
-    }
-
-    public void setImage(Context ctx, String image) {
-        ImageView fantasy_xi_image = (ImageView) mView.findViewById(R.id.fantasy_xi_image);
-        Picasso.with(ctx).load(image).resize(100, 100).onlyScaleDown().into(fantasy_xi_image);
+    public void setNews(String title) {
+        TextView text_news = (TextView) mView.findViewById(R.id.news);
+        text_news.setText(title);
     }
 
     public void setOnclickListener(ClickListener clickListener) {

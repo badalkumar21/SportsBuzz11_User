@@ -39,6 +39,7 @@ public class InfoFragment extends Fragment {
     private TextView text_duration;
     private TextView text_match;
     private TextView text_series;
+    private TextView text_seriesDetails;
     private TextView text_time;
     private TextView text_venue;
     private TextView text_weather;
@@ -59,6 +60,7 @@ public class InfoFragment extends Fragment {
         text_duration = view.findViewById(R.id.duration);
         text_match = view.findViewById(R.id.match);
         text_series = view.findViewById(R.id.series);
+        text_seriesDetails = view.findViewById(R.id.series_details);
         text_time = view.findViewById(R.id.time);
         text_venue = view.findViewById(R.id.venue);
         text_weather = view.findViewById(R.id.weather);
@@ -95,6 +97,7 @@ public class InfoFragment extends Fragment {
                 text_duration.setText(modelInfo.getDuration());
                 text_match.setText(modelInfo.getMatch());
                 text_series.setText(modelInfo.getSeries());
+                text_seriesDetails.setText(modelInfo.getSeriesDetails());
                 text_time.setText(modelInfo.getTime());
                 text_venue.setText(modelInfo.getVenue());
                 text_weather.setText(modelInfo.getWeather());

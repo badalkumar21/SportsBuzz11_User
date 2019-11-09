@@ -17,21 +17,21 @@ public class ViewHolderTips extends RecyclerView.ViewHolder {
 
         mView = itemView;
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mClickListener.onItemClick(v, getAdapterPosition());
-            }
-        });
-
-        itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-
-                mClickListener.onItemLongClick(v, getAdapterPosition());
-                return true;
-            }
-        });
+//        itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mClickListener.onItemClick(v, getAdapterPosition());
+//            }
+//        });
+//
+//        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//
+//                mClickListener.onItemLongClick(v, getAdapterPosition());
+//                return true;
+//            }
+//        });
 
     }
 

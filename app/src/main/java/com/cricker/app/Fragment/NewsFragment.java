@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cricker.app.Activity.MatchDetailsActivity;
-import com.cricker.app.Model.ModelTips;
+import com.cricker.app.Model.ModelNews;
 import com.cricker.app.R;
-import com.cricker.app.ViewHolder.ViewHolderTips;
+import com.cricker.app.ViewHolder.ViewHolderNews;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -27,27 +27,27 @@ import com.google.firebase.database.ValueEventListener;
 
 import static com.cricker.app.Config.PATH;
 
-public class TipsFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
     public MatchDetailsActivity matchDetailsActivity;
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
     ProgressBar pb;
-    FirebaseRecyclerAdapter<ModelTips, ViewHolderTips> firebaseRecyclerAdapter;
+    FirebaseRecyclerAdapter<ModelNews, ViewHolderNews> firebaseRecyclerAdapter;
     private String id;
-    TextView textViewNoTips;
+    TextView textViewNoNews;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_tips, container, false);
+        final View view = inflater.inflate(R.layout.fragment_news, container, false);
 
-        textViewNoTips = view.findViewById(R.id.no_tips_text);
+        textViewNoNews = view.findViewById(R.id.no_news_text);
         matchDetailsActivity = (MatchDetailsActivity) getActivity();
 
-        pb = view.findViewById(R.id.pb_tips);
-        mRecyclerView = view.findViewById(R.id.myRecycleView_tips);
+        pb = view.findViewById(R.id.pb_news);
+        mRecyclerView = view.findViewById(R.id.myRecycleView_news);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
@@ -55,28 +55,27 @@ public class TipsFragment extends Fragment {
         id = matchDetailsActivity.id;
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/" + "tips");
+        mRef = mFirebaseDatabase.getReference(PATH + "FantasySquad/Team" + "/" + id + "/" + "news");
         Query query = mRef.orderByKey();
 
         pb.setVisibility(View.VISIBLE);
 
-        FirebaseRecyclerOptions fbOptions = new FirebaseRecyclerOptions.Builder<ModelTips>().setQuery(query, ModelTips.class).build();
+        FirebaseRecyclerOptions fbOptions = new FirebaseRecyclerOptions.Builder<ModelNews>().setQuery(query, ModelNews.class).build();
 
-        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ModelTips, ViewHolderTips>(fbOptions) {
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ModelNews, ViewHolderNews>(fbOptions) {
             @Override
-            protected void onBindViewHolder(ViewHolderTips viewHolder, final int position, final ModelTips model) {
+            protected void onBindViewHolder(ViewHolderNews viewHolder, final int position, final ModelNews model) {
 
-                viewHolder.setTips(model.getTips());
-
+                viewHolder.setNews(model.getNews());
                 pb.setVisibility(View.GONE);
 
             }
 
             @Override
-            public ViewHolderTips onCreateViewHolder(ViewGroup parent, int viewType) {
+            public ViewHolderNews onCreateViewHolder(ViewGroup parent, int viewType) {
 
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tips_row, parent, false);
-                return new ViewHolderTips(view);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_row, parent, false);
+                return new ViewHolderNews(view);
             }
         };
 
@@ -85,9 +84,9 @@ public class TipsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 pb.setVisibility(View.GONE);
                 if (dataSnapshot.getChildrenCount() == 0) {
-                    textViewNoTips.setVisibility(View.VISIBLE);
+                    textViewNoNews.setVisibility(View.VISIBLE);
                 } else {
-                    textViewNoTips.setVisibility(View.GONE);
+                    textViewNoNews.setVisibility(View.GONE);
                 }
             }
 
