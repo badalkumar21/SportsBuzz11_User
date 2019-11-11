@@ -49,6 +49,8 @@ public class ViewHolderFantasyXI extends RecyclerView.ViewHolder {
         Picasso.with(ctx).load(image).resize(100, 100).onlyScaleDown().into(fantasy_xi_image);
     }
 
+
+
     public void setOnclickListener(ClickListener clickListener) {
 
         mClickListener = clickListener;

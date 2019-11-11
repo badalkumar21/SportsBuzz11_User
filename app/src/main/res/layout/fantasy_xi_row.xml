@@ -33,15 +33,14 @@
                 <ImageView
                     android:id="@+id/fantasy_xi_image"
                     android:layout_width="30dp"
-                    android:layout_height="20dp"
+                    android:layout_height="30dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_settings_blue_24dp" />
+                    android:src="@drawable/team1" />
 
                 <TextView
                     android:id="@+id/fantasy_xi_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
                     android:text="Player"
