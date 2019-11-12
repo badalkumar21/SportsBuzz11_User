@@ -105,6 +105,7 @@ public class HomeFragment extends Fragment {
                             intent.putExtra("team1", model.getTeam1());
                             intent.putExtra("team2", model.getTeam2());
                             intent.putExtra("id", model.getId());
+                            intent.putExtra("match", model.getDesc());
                             startActivity(intent);
 
                         } else {

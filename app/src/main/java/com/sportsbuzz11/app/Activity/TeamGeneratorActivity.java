@@ -1,6 +1,7 @@
 package com.sportsbuzz11.app.Activity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -9,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -71,11 +74,21 @@ public class TeamGeneratorActivity extends AppCompatActivity {
     ArrayList<Integer> arrayListAl = new ArrayList<>();
     ArrayList<Integer> arrayListBw = new ArrayList<>();
     ArrayList<ModelSquad> arrayListXi = new ArrayList<>();
+    Toolbar toolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_generator);
+
+        toolbar = findViewById(R.id.toolbar_activity);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        getSupportActionBar().setTitle("Team Generator");
 
         backButton = findViewById(R.id.backButton);
 
@@ -90,6 +103,8 @@ public class TeamGeneratorActivity extends AppCompatActivity {
         id = getIntent().getExtras().getString("id");
         team1 = getIntent().getExtras().getString("team1");
         team2 = getIntent().getExtras().getString("team2");
+
+
 
         final Context context = this;
         userID = Settings.Secure.getString(context.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);

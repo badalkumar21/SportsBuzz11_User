@@ -23,4 +23,13 @@
         <item name="titleTextColor">@color/colorWhite</item>
     </style>
 
+    <style name="TextAppearance.Toolbar.Title.Collapsed" parent="android:TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.Toolbar.Title.Expanded" parent="android:TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
 </resources>

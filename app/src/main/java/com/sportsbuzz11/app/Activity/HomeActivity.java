@@ -142,7 +142,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         relativeLayout = findViewById(R.id.relativeLayout);
-        valueAnimator = ValueAnimator.ofObject(new ArgbEvaluator(), Color.parseColor("#0094a4"), Color.parseColor("#ed0082"), Color.parseColor("#d66f0e"), Color.parseColor("#ff0558"), Color.parseColor("#1ca055"));
+        valueAnimator = ValueAnimator.ofObject(new ArgbEvaluator(), Color.parseColor("#FF4B2B"), Color.parseColor("#ed0082"), Color.parseColor("#d66f0e"), Color.parseColor("#ff0558"), Color.parseColor("#1ca055"));
         valueAnimator.setDuration((5 - 1) * 100000000);
 
 

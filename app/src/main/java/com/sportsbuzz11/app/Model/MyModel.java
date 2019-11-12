@@ -4,6 +4,7 @@ public class MyModel {
 
     private String title;
     private String desc;
+    private String time;
     private String id;
     private String image1;
     private String image2;
@@ -14,6 +15,7 @@ public class MyModel {
     private String status_r;
     private String status_g;
     private String url;
+    private String venue;
     private String target;
     private String ads;
 
@@ -22,10 +24,10 @@ public class MyModel {
 
     }
 
-
-    public MyModel(String title, String desc, String id, String image1, String image2, String t1, String t2, String team1, String team2, String status_r, String status_g, String url, String target, String ads) {
+    public MyModel(String title, String desc, String time, String id, String image1, String image2, String t1, String t2, String team1, String team2, String status_r, String status_g, String url, String venue, String target, String ads) {
         this.title = title;
         this.desc = desc;
+        this.time = time;
         this.id = id;
         this.image1 = image1;
         this.image2 = image2;
@@ -36,8 +38,17 @@ public class MyModel {
         this.status_r = status_r;
         this.status_g = status_g;
         this.url = url;
+        this.venue = venue;
         this.target = target;
         this.ads = ads;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getId() {
@@ -94,6 +105,14 @@ public class MyModel {
 
     public void setT2(String t2) {
         this.t2 = t2;
+    }
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public void setVenue(String venue) {
+        this.venue = venue;
     }
 
     public String getStatus_r() {
