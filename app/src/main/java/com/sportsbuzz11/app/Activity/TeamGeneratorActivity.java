@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sportsbuzz11.app.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sportsbuzz11.app.Model.ModelSquad;
+import com.sportsbuzz11.app.R;
 import com.sportsbuzz11.app.ViewHolder.ViewHolderFantasyXI;
 
 import java.util.ArrayList;
@@ -43,10 +43,10 @@ public class TeamGeneratorActivity extends AppCompatActivity {
     int points;
     int MAX_POINTS = 100;
 
-    int NUM_WK = 2;
-    int NUM_BT = 11;
+    int NUM_WK = 3;
+    int NUM_BT = 10;
     int NUM_AL = 4;
-    int NUM_BW = 5;
+    int NUM_BW = 8;
 
     Button backButton;
 
@@ -103,7 +103,6 @@ public class TeamGeneratorActivity extends AppCompatActivity {
         id = getIntent().getExtras().getString("id");
         team1 = getIntent().getExtras().getString("team1");
         team2 = getIntent().getExtras().getString("team2");
-
 
 
         final Context context = this;
@@ -279,7 +278,7 @@ public class TeamGeneratorActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderFantasyXI viewHolder, int i, @NonNull ModelSquad model) {
                 viewHolder.setName(model.getName());
-                viewHolder.setImage(getApplicationContext(), model.getImage());
+                viewHolder.setTeam(model.getTeam(), team1);
             }
 
             @NonNull
@@ -306,7 +305,9 @@ public class TeamGeneratorActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderFantasyXI viewHolder, int i, @NonNull ModelSquad model) {
                 viewHolder.setName(model.getName());
-                viewHolder.setImage(getApplicationContext(), model.getImage());
+                viewHolder.setTeam(model.getTeam(), team1);
+
+
             }
 
             @NonNull
@@ -333,7 +334,7 @@ public class TeamGeneratorActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderFantasyXI viewHolder, int i, @NonNull ModelSquad model) {
                 viewHolder.setName(model.getName());
-                viewHolder.setImage(getApplicationContext(), model.getImage());
+                viewHolder.setTeam(model.getTeam(), team1);
             }
 
             @NonNull
@@ -360,7 +361,7 @@ public class TeamGeneratorActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolderFantasyXI viewHolder, int i, @NonNull ModelSquad model) {
                 viewHolder.setName(model.getName());
-                viewHolder.setImage(getApplicationContext(), model.getImage());
+                viewHolder.setTeam(model.getTeam(), team1);
             }
 
             @NonNull

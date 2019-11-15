@@ -69,7 +69,7 @@ public class Tab2Fragment extends Fragment {
                 viewHolder.setName(model.getName());
                 viewHolder.setRole(model.getRole());
                 viewHolder.setPoints(model.getPoints());
-                viewHolder.setImage(Objects.requireNonNull(getActivity()).getBaseContext(), model.getImage());
+                viewHolder.setTeam(model.getTeam());
 
                 pb.setVisibility(View.GONE);
 

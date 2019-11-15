@@ -1,7 +1,7 @@
 package com.sportsbuzz11.app.Activity;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sportsbuzz11.app.Adapter.TabAdapter;
-import com.sportsbuzz11.app.Fragment.InfoFragment;
 import com.sportsbuzz11.app.Fragment.NewsFragment;
 import com.sportsbuzz11.app.Fragment.SquadFragment;
 import com.sportsbuzz11.app.Fragment.TeamGeneratorFragment;
@@ -102,11 +101,10 @@ public class MatchDetailsActivity extends AppCompatActivity {
                     if (model != null) {
                         matchTime = model.getTime();
                         matchVenue = model.getVenue();
-                        matchDate = model.getTitle();
+                        matchDate = model.getDate();
 
                         updateMatchDetails();
 
-                        Log.d("match_details_", "onDataChange: " + model.getDesc());
                     }
                 }
 
@@ -127,4 +125,18 @@ public class MatchDetailsActivity extends AppCompatActivity {
         textMatchVenue.setText(matchVenue);
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 }

@@ -2,8 +2,8 @@ package com.sportsbuzz11.app.Model;
 
 public class MyModel {
 
-    private String title;
-    private String desc;
+    private String date;
+    private String type;
     private String time;
     private String id;
     private String image1;
@@ -12,8 +12,6 @@ public class MyModel {
     private String t2;
     private String team1;
     private String team2;
-    private String status_r;
-    private String status_g;
     private String url;
     private String venue;
     private String target;
@@ -24,9 +22,9 @@ public class MyModel {
 
     }
 
-    public MyModel(String title, String desc, String time, String id, String image1, String image2, String t1, String t2, String team1, String team2, String status_r, String status_g, String url, String venue, String target, String ads) {
-        this.title = title;
-        this.desc = desc;
+    public MyModel(String date, String type, String time, String id, String image1, String image2, String t1, String t2, String team1, String team2, String url, String venue, String target, String ads) {
+        this.date = date;
+        this.type = type;
         this.time = time;
         this.id = id;
         this.image1 = image1;
@@ -35,8 +33,6 @@ public class MyModel {
         this.t2 = t2;
         this.team1 = team1;
         this.team2 = team2;
-        this.status_r = status_r;
-        this.status_g = status_g;
         this.url = url;
         this.venue = venue;
         this.target = target;
@@ -59,20 +55,20 @@ public class MyModel {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDate() {
+        return date;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getType() {
+        return type;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getImage1() {
@@ -115,21 +111,7 @@ public class MyModel {
         this.venue = venue;
     }
 
-    public String getStatus_r() {
-        return status_r;
-    }
 
-    public void setStatus_r(String status_r) {
-        this.status_r = status_r;
-    }
-
-    public String getStatus_g() {
-        return status_g;
-    }
-
-    public void setStatus_g(String status_g) {
-        this.status_g = status_g;
-    }
 
     public String getUrl() {
         return url;

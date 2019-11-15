@@ -44,9 +44,16 @@ public class ViewHolderFantasyXI extends RecyclerView.ViewHolder {
         fantasy_xi_title.setText(title);
     }
 
-    public void setImage(Context ctx, String image) {
-        ImageView fantasy_xi_image = (ImageView) mView.findViewById(R.id.fantasy_xi_image);
-        Picasso.with(ctx).load(image).resize(100, 100).onlyScaleDown().into(fantasy_xi_image);
+
+    public void setTeam(String text, String team) {
+        TextView fantasy_xi_team = (TextView) mView.findViewById(R.id.fantasy_xi_team);
+        fantasy_xi_team.setText(text);
+
+        if (team.equals(text)){
+            fantasy_xi_team.setBackgroundResource(R.drawable.team_bg_1);
+        } else {
+            fantasy_xi_team.setBackgroundResource(R.drawable.team_bg_2);
+        }
     }
 
 

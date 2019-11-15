@@ -4,7 +4,7 @@ public class ModelSquad {
 
     private String name;
     private String role;
-    private String image;
+    private String team;
     private float points;
     private boolean isPlaying;
     private String ads;
@@ -15,10 +15,10 @@ public class ModelSquad {
     }
 
 
-    public ModelSquad(String name, String role, String image, float points, boolean isPlaying) {
+    public ModelSquad(String name, String role, String team, float points, boolean isPlaying) {
         this.name = name;
         this.role = role;
-        this.image = image;
+        this.team = team;
         this.points = points;
         this.isPlaying = isPlaying;
     }
@@ -47,12 +47,16 @@ public class ModelSquad {
         this.role = role;
     }
 
-    public String getImage() {
-        return image;
+    public String getTeam() {
+        return team;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public boolean isPlaying() {
+        return isPlaying;
     }
 
     public float getPoints() {

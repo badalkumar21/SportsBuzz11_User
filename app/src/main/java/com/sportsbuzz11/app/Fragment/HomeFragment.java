@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sportsbuzz11.app.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.sportsbuzz11.app.Activity.MatchDetailsActivity;
 import com.sportsbuzz11.app.Activity.WebViewActivity;
 import com.sportsbuzz11.app.Model.MyModel;
+import com.sportsbuzz11.app.R;
 import com.sportsbuzz11.app.ViewHolder.MyViewHolder;
 
 import static com.sportsbuzz11.app.Config.PATH;
@@ -62,35 +62,15 @@ public class HomeFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i, @NonNull final MyModel model) {
 
-                String urlImg1 = model.getImage1();
-                String urlImg2 = model.getImage2();
-
-
                 viewHolder.setAds(getActivity().getBaseContext(), model.getAds());
-                viewHolder.setTitle(model.getTitle());
-                viewHolder.setDesc(model.getDesc());
-                if (urlImg1.equals("")){
-                    viewHolder.setImage1Def(getActivity().getBaseContext());
-                }
-                else {
-                    viewHolder.setImage1(getActivity().getBaseContext(), urlImg1);
-                }
 
-                if (urlImg2.equals("")){
-                    viewHolder.setImage2Def(getActivity().getBaseContext());
-                }
-                else {
-                    viewHolder.setImage2(getActivity().getBaseContext(), urlImg2);
-                }
+                viewHolder.setType(model.getType());
+                viewHolder.setDate(model.getDate());
+                viewHolder.setTime(model.getTime());
+
                 viewHolder.setT1(model.getT1());
                 viewHolder.setT2(model.getT2());
-                if (model.getUrl() == null) {
-                    viewHolder.setStatus_r("upcoming");
-                    viewHolder.setStatus_g(null);
-                } else {
-                    viewHolder.setStatus_g("available");
-                    viewHolder.setStatus_r(null);
-                }
+
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -105,7 +85,7 @@ public class HomeFragment extends Fragment {
                             intent.putExtra("team1", model.getTeam1());
                             intent.putExtra("team2", model.getTeam2());
                             intent.putExtra("id", model.getId());
-                            intent.putExtra("match", model.getDesc());
+                            intent.putExtra("match", model.getType());
                             startActivity(intent);
 
                         } else {
@@ -130,7 +110,7 @@ public class HomeFragment extends Fragment {
             @Override
             public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_v7, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_schedule, parent, false);
                 return new MyViewHolder(view);
             }
         };

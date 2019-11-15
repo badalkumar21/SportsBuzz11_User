@@ -59,15 +59,12 @@ public class ViewHolderSquad extends RecyclerView.ViewHolder {
         squad_points.setText(String.valueOf(points));
     }
 
-    public void setIsPlaying(boolean isPlaying) {
-        CheckBox checkBox = (CheckBox) mView.findViewById(R.id.checkBox);
-        checkBox.setChecked(isPlaying);
+      public void setTeam(String team) {
+        TextView squad_team = (TextView) mView.findViewById(R.id.squad_team);
+          squad_team.setText(String.valueOf(team));
     }
 
-    public void setImage(Context ctx, String image1) {
-        ImageView squad_image = (ImageView) mView.findViewById(R.id.squad_image);
-        Picasso.with(ctx).load(image1).into(squad_image);
-    }
+
 
     public void setAds(Context ctx, String ads) {
         ImageView adImage = (ImageView) mView.findViewById(R.id.adImage);

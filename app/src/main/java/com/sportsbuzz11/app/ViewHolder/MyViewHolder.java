@@ -39,35 +39,40 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void setTitle(String title) {
-        TextView post_title = (TextView) mView.findViewById(R.id.post_title1);
-        post_title.setText(title);
+    public void setTime(String time) {
+        TextView match_time = (TextView) mView.findViewById(R.id.match_time);
+        match_time.setText(time);
     }
 
-    public void setDesc(String desc) {
-        TextView post_desc = (TextView) mView.findViewById(R.id.post_desc1);
-        post_desc.setText(desc);
+    public void setType(String type) {
+        TextView match_type = (TextView) mView.findViewById(R.id.match_type);
+        match_type.setText(type);
     }
 
-    public void setImage1(Context ctx, String image1) {
-        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image1);
-        Picasso.with(ctx).load(image1).resize(100, 100).onlyScaleDown().into(post_image);
+    public void setDate(String date) {
+        TextView post_desc = (TextView) mView.findViewById(R.id.match_date);
+        post_desc.setText(date);
     }
 
-    public void setImage2(Context ctx, String image2) {
-        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image2);
-        Picasso.with(ctx).load(image2).resize(100, 100).onlyScaleDown().into(post_image);
-    }
-
-    public void setImage1Def(Context ctx) {
-        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image1);
-        Picasso.with(ctx).load(R.drawable.def_icon).resize(100, 100).onlyScaleDown().into(post_image);
-    }
-
-    public void setImage2Def(Context ctx) {
-        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image2);
-        Picasso.with(ctx).load(R.drawable.def_icon).resize(100, 100).onlyScaleDown().into(post_image);
-    }
+//    public void setImage1(Context ctx, String image1) {
+//        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image1);
+//        Picasso.with(ctx).load(image1).resize(100, 100).onlyScaleDown().into(post_image);
+//    }
+//
+//    public void setImage2(Context ctx, String image2) {
+//        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image2);
+//        Picasso.with(ctx).load(image2).resize(100, 100).onlyScaleDown().into(post_image);
+//    }
+//
+//    public void setImage1Def(Context ctx) {
+//        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image1);
+//        Picasso.with(ctx).load(R.drawable.def_icon).resize(100, 100).onlyScaleDown().into(post_image);
+//    }
+//
+//    public void setImage2Def(Context ctx) {
+//        ImageView post_image = (ImageView) mView.findViewById(R.id.post_image2);
+//        Picasso.with(ctx).load(R.drawable.def_icon).resize(100, 100).onlyScaleDown().into(post_image);
+//    }
 
     public void setAds(Context ctx, String ads) {
         ImageView adImage = (ImageView) mView.findViewById(R.id.adImage);
@@ -84,15 +89,15 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         post_t2.setText(t2);
     }
 
-    public void setStatus_r(String status_r) {
-        TextView status = (TextView) mView.findViewById(R.id.status_upcoming1);
-        status.setText(status_r);
-    }
-
-    public void setStatus_g(String status_g) {
-        TextView status = (TextView) mView.findViewById(R.id.status_available1);
-        status.setText(status_g);
-    }
+//    public void setStatus_r(String status_r) {
+//        TextView status = (TextView) mView.findViewById(R.id.status_upcoming1);
+//        status.setText(status_r);
+//    }
+//
+//    public void setStatus_g(String status_g) {
+//        TextView status = (TextView) mView.findViewById(R.id.status_available1);
+//        status.setText(status_g);
+//    }
 
     public void setOnclickListener(ClickListener clickListener) {
 

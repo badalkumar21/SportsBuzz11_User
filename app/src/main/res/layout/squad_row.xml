@@ -23,29 +23,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/view1"
+                <TextView
+                    android:id="@+id/squad_team"
+                    android:layout_margin="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:id="@+id/squad_image"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:scaleType="centerCrop" />
-
-                </androidx.cardview.widget.CardView>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:padding="16dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/rounded_dot"
-                    android:visibility="gone" />
+                    android:text="IND" />
 
                 <TextView
                     android:id="@+id/squad_role"
@@ -135,4 +118,5 @@
     </RelativeLayout>
 
 
-</androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView
+>

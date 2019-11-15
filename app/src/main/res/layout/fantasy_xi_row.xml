@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -30,12 +28,25 @@
                 android:orientation="vertical"
                 android:padding="4dp">
 
-                <ImageView
-                    android:id="@+id/fantasy_xi_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/team1" />
+                <TextView
+                    android:id="@+id/fantasy_xi_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/team_bg_1"
+                    android:minWidth="50dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="2dp"
+                    android:text="IND" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="4dp"
+                    android:background="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/fantasy_xi_name"
